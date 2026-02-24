@@ -6,12 +6,20 @@
 
 		<title>NHoS</title>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reset.css">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/nhsbuntu.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
 	</head>
 	<body>
 		<div class="reveal">
@@ -76,11 +84,11 @@
 						<p>A free, open source UNIX based operating system</p>
 						<p>Released 1991 by Linus Torvalds, Finnish Computer Science student</p>
 						<p>Now running on 96.6% of the world’s top 1 million websites</p>
-						<p>It is inside all Android devices and Chromebook laptops</p>
-						<p>It is used by web giants like Amazon, Facebook and Google</p>
+						<p>It’s the operating system inside Android devices and Chromebook laptops</p>
+						<p>It’s used by the giants of the web including Amazon, Facebook and Google</p>
 						<p>Apple, Oracle, and IBM all use free UNIX variants</p>
 					</section>
-				</section>
+				</section><!-- class="what-is-NHoS?" -->
 
 				<section class="whats-wrong-with-windows">
 					<section>
@@ -102,11 +110,11 @@
 					</section>
 
 					<section>
-						<h2>there is no upgrade path for some NHS orgs</h2>
+						<h2>there's no upgrade path for some trusts</h2>
 						<p class="fragment fade-in">legacy clinical apps with pre-Win10 dependencies</p>
 						<p class="fragment fade-in">no resources to migrate off those legacy clinical apps</p>
 						<p class="fragment fade-in">increasing security risk from these older dependencies</p>
-						<!-- <p class="fragment fade-in">NHoS proposes to wrap WinXP legacy software in virtual machines</p> -->
+						<p class="fragment fade-in">NHoS proposes to wrap WinXP legacy software in virtual machines</p>
 					</section>
 
 					<section class="win7-EOL-there-is-no-plan">
@@ -254,23 +262,26 @@
 			</div>
 		</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
 
 		<script>
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+
 				controls: true,
 				progress: true,
 				history: true,
 				center: true,
-				hash: true,
-				plugins: [RevealMarkdown, RevealNotes, RevealHighlight, RevealZoom],
+
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
 			});
 		</script>
 	</body>
